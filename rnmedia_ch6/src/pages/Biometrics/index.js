@@ -1,9 +1,14 @@
 import { StyleSheet, Text, View , TouchableHighlight, Button} from 'react-native'
-import React from 'react'
+import React, {useEffect} from 'react'
 import TouchID from 'react-native-touch-id';
+import { useNavigation } from '@react-navigation/native';
+
+
 const Biometrics = () => {
+  const navigation = useNavigation();
 
   function onFingerPrintPress() {
+    
     const optionalConfigObject = {
       title: 'Authentication Required', // Android
       imageColor: '#e00606', // Android
@@ -18,36 +23,39 @@ const Biometrics = () => {
 
     TouchID.authenticate('to demo this react-native component', optionalConfigObject)
       .then(success => {
-        alert('Authenticated Successfully');
+        navigation.replace('MainApp');
       })
       .catch(error => {
         alert('Authentication Failed');
       });
 
-      TouchID.isSupported()
-      .then(biometryType => {
-        // success code
-        if (biometryType === 'FaceID') {
-          alert('FaceID is supported.')
-        } else if (biometryType === 'TouchID'){
-          alert('TouchID is supported.')
-        } else if (biometryType === true) {
-          alert('supported TouchID for android.')
-        }
-      })
-      .catch(error => {
-        alert(error)
-      })
+      // TouchID.isSupported()
+      // .then(biometryType => {
+      //   // success code
+      //   if (biometryType === 'FaceID') {
+      //     alert('FaceID is supported.')
+      //   } else if (biometryType === 'TouchID'){
+      //     alert('TouchID is supported.')
+      //   } else if (biometryType === true) {
+      //     alert('supported TouchID for android.')
+      //   }
+      // })
+      // .catch(error => {
+      //   alert(error)
+      // })
   }
 
+  useEffect(() => {
+    onFingerPrintPress()
+  })
 
 
   return (
     <View>
-      <Button
+      {/* <Button
             title="Fingerprint"
             onPress={() => onFingerPrintPress()}
-        />
+        /> */}
       
     </View>
   )

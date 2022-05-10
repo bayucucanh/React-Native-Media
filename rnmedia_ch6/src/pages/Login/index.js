@@ -5,6 +5,7 @@ import {
   GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import Biometrics from '../Biometrics';
 
 const Login = () => {
   const [email, setEmail] = React.useState('');
@@ -110,6 +111,7 @@ const Login = () => {
             onGoogleSignOut().then(() => console.log('Signed Out'))
           }
         />
+        <Biometrics />
     </View>
   );
 };

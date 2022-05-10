@@ -1,26 +1,54 @@
-import React, {useEffect} from 'react';
-import {View, Button, Text, StyleSheet} from 'react-native';
-import { Login, Camera, Crashlytics, Maps, Biometrics, Register } from './src/pages';  
+import * as React from 'react';
+import {Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { Login, Maps, Camera } from './src/pages';
 
-export default function App() {
-
+function HomeScreen() {
   return (
-    // <NavigationContainer>
-      // <Camera />
-      // <Analytics />
-            // <Crashlytics />
-            // <Maps />
-    // </NavigationContainer>
-    <View style={styles.wrapper}>
-      {/* <Biometrics /> */}
-      <Login />
-      {/* <Register /> */}
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Home!</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFillObject
-  }
-});
+function SettingsScreen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const MainApp = () => {
+  return (
+    <Tab.Navigator>
+      {/* <Tab.Screen name="Camera" component={Camera} /> */}
+      <Tab.Screen name="Maps" component={Maps} />
+      <Tab.Screen name="Camera" component={Camera} />
+    </Tab.Navigator>
+  );
+};
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="MainApp"
+          component={MainApp}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
