@@ -21,6 +21,8 @@ target 'rnmediach6' do
 
   pod 'TouchID', :path => '../node_modules/react-native-touch-id'
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'rnmediach6Tests' do
     inherit! :complete
     # Pods for testing

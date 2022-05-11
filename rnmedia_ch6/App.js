@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { Login, Maps, Camera } from './src/pages';
+import { Login, Maps, Camera, WebScreen } from './src/pages';
 
 function HomeScreen() {
   return (
@@ -46,6 +46,10 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="WebScreen" component={WebScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

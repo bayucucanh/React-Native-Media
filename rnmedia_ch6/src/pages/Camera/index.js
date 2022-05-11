@@ -3,10 +3,11 @@ import React from 'react';
 import {CameraScreen, CameraType} from 'react-native-camera-kit';
 import { useIsFocused } from '@react-navigation/native';
 
-const Camera = () => {
+const Camera = ({navigation}) => {
   const isFocused = useIsFocused()
   const onReadCode = (data) => {
-    alert(data.nativeEvent.codeStringValue)
+    // alert(data.nativeEvent.codeStringValue)
+    navigation.navigate('WebScreen', {url: data.nativeEvent.codeStringValue})
   }
 
   return (
