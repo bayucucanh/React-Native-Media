@@ -20,6 +20,7 @@ const Analytics = () => {
 
   return (
     <View>
+      <Text>Analytics</Text>
       <Button
         title="Press me"
         // Logs in the firebase analytics console as "select_content" event
