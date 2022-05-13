@@ -8,7 +8,7 @@ import auth from '@react-native-firebase/auth';
 
 const Profile = ({navigation}) => {
   async function onGoogleSignOut() {
-    await auth().signOut();
+    await auth().signOut().then(()=>{navigation.replace('Login')});
   }
 
   return (
