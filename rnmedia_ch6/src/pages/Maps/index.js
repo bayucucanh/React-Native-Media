@@ -23,7 +23,6 @@ export default function Maps() {
 
   return (
     <View style={styles.wrapper}>
-      <Text>App</Text>
       <MapView
         style={styles.map}
         initialRegion={{
@@ -32,8 +31,9 @@ export default function Maps() {
           latitudeDelta: 0.001,
           longitudeDelta: 0.001,
         }}
-        //  provider={PROVIDER_GOOGLE}
+        provider={PROVIDER_GOOGLE}
         showsUserLocation={true}>
+
         <Marker
           coordinate={{
             latitude: -6.8399029455469496,
@@ -53,10 +53,11 @@ export default function Maps() {
             </View>
           </Callout>
         </Marker>
+
         <Marker
           coordinate={{
-            latitude: -6.8399029455469496,
-            longitude: 107.58471953955168,
+            latitude: -6.840089,
+            longitude: 107.584722,
           }}
           title="Test Title"
           description="This is the test description">
@@ -64,6 +65,46 @@ export default function Maps() {
             <View>
               <View style={styles.buble}>
                 <Text style={styles.name}>Indomaret</Text>
+                <View style={styles.arrowBorder} />
+                <View style={styles.arrow} />
+              </View>
+              <View style={styles.arrowBorder}></View>
+              <View style={styles.arrow}></View>
+            </View>
+          </Callout>
+        </Marker>
+
+        <Marker
+          coordinate={{
+            latitude: -6.8400187,
+            longitude: 107.5847853,
+          }}
+          title="Test Title"
+          description="This is the test description">
+          <Callout tooltip>
+            <View>
+              <View style={styles.buble}>
+                <Text style={styles.name}>Mie Ayam Baso</Text>
+                <View style={styles.arrowBorder} />
+                <View style={styles.arrow} />
+              </View>
+              <View style={styles.arrowBorder}></View>
+              <View style={styles.arrow}></View>
+            </View>
+          </Callout>
+        </Marker>
+
+        <Marker
+          coordinate={{
+            latitude: -6.8400909,
+            longitude: 107.5850788,
+          }}
+          title="Test Title"
+          description="This is the test description">
+          <Callout tooltip>
+            <View>
+              <View style={styles.buble}>
+                <Text style={styles.name}>Martbak Manis Tasikmalaya</Text>
                 <View style={styles.arrowBorder} />
                 <View style={styles.arrow} />
               </View>

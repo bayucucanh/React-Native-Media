@@ -35,6 +35,10 @@ const Login = () => {
           alert('That email address is invalid!');
         }
 
+        if (email === null || password === null) {
+          alert('Email or password null')
+        }
+
         console.error(error);
       });
   };
@@ -70,14 +74,12 @@ const Login = () => {
   if (!user) {
     return (
       <View>
-        <Text>{email}</Text>
         <TextInput
           style={styles.input}
           onChangeText={setEmail}
           value={email}
           placeholder="Masukan email"
         />
-        <Text>{password}</Text>
         <TextInput
           style={styles.input}
           onChangeText={setPassword}
@@ -104,13 +106,13 @@ const Login = () => {
 
   return (
     <View>
-      <Text>Welcome {user.email}</Text>
+      {/* <Text>Welcome {user.email}</Text>
       <Button
           title="Sign-Out"
           onPress={() =>
             onGoogleSignOut().then(() => console.log('Signed Out'))
           }
-        />
+        /> */}
         <Biometrics />
     </View>
   );
